@@ -1,14 +1,13 @@
 <template>
-  <div class="home">
-    <h1>This is an home page</h1>
-  </div>
+  <footer>
+    <p>Paxa 2022</p>
+  </footer>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "HomeView",
-  components: {},
+  name: "FooterComponent",
 });
 </script>
