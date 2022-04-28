@@ -1,9 +1,19 @@
-import { createStore } from "vuex";
+import { InjectionKey } from "vue";
+import { createStore, useStore as baseUseStore, Store } from "vuex";
 
-import UserModule from "./user-module";
-import OrganizationModule from "./organization-module";
+import UserModule, { UserModuleState } from "./user-module";
+import OrganizationModule, {
+  OrganizationModuleState,
+} from "./organization-module";
 
-export default createStore({
+interface State {
+  users: UserModuleState;
+  organizations: OrganizationModuleState;
+}
+
+const key: InjectionKey<Store<State>> = Symbol();
+
+const store = createStore({
   state: {},
   getters: {},
   mutations: {},
@@ -13,3 +23,10 @@ export default createStore({
     organizations: OrganizationModule,
   },
 });
+
+const useStore = () => {
+  return baseUseStore(key);
+};
+
+export default store;
+export { key, useStore };
