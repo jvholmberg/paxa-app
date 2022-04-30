@@ -29,4 +29,4 @@ const useStore = () => {
 };
 
 export default store;
-export { key, useStore };
+export { key, useStore, State };

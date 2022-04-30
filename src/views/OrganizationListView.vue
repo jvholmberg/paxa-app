@@ -13,15 +13,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import { useStore } from "@/store";
 import OrganizationView from "@/views/OrganizationView.vue";
+import { useGetAll } from "@/store/organization-module";
 
 export default defineComponent({
   name: "OrganizationListView",
   components: { OrganizationView },
   setup() {
     const store = useStore();
+    useGetAll(store);
+
     let openOrganizationId = ref<number>();
 
     const onToggleItem = (organizationId: number) => {
@@ -34,7 +37,7 @@ export default defineComponent({
     };
 
     return {
-      organizationIds: store.state.organizations.allIds,
+      organizationIds: computed(() => store.state.organizations.allIds),
       openOrganizationId,
       onToggleItem,
     };

@@ -14,8 +14,5 @@ export default defineComponent({
     AppNavigation,
     AppFooter,
   },
-  setup() {
-    console.log(123);
-  },
 });
 </script>

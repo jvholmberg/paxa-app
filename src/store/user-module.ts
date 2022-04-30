@@ -1,5 +1,5 @@
 import { Module } from "vuex";
-import { NormalizedState } from "@/types/normalized-state.interface";
+import { NormalizedState } from "@/types/generic.interface";
 import { User } from "@/types/user.interface";
 
 type UserModuleState = NormalizedState<User>;
